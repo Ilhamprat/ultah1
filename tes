@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Tebak Angka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Game Tebak Angka</h1>
+  <p>Tebak angka antara 1 sampai 10</p>
+
+  <input type="number" id="guess" min="1" max="10" placeholder="Masukkan angka...">
+  <button onclick="checkGuess()">Tebak!</button>
+
+  <p id="result"></p>
+
+  <script>
+    // Angka acak antara 1 - 10
+    let secretNumber = Math.floor(Math.random() * 10) + 1;
+
+    function checkGuess() {
+      let guess = document.getElementById("guess").value;
+      let result = document.getElementById("result");
+
+      if (guess == secretNumber) {
+        result.innerHTML = "🎉 Benar! Angkanya adalah " + secretNumber;
+      } else if (guess < secretNumber) {
+        result.innerHTML = "Terlalu kecil! Coba lagi.";
+      } else {
+        result.innerHTML = "Terlalu besar! Coba lagi.";
+      }
+    }
+  </script>
+</body>
+</html>
